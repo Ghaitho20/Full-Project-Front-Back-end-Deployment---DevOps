@@ -4,6 +4,7 @@ import '../../../assets/css/Stats/editStatsPage/TransplantActivityInput.css';
 
 // ✅ Import du token
 import { getToken } from '../../Security&Auth/authUtils'; // Vérifie que le chemin est correct
+import { API_BASE_URL } from '../../../config';
 
 const TransplantActivityInput = ({ onSubmit }) => {
   const [year, setYear] = useState('');

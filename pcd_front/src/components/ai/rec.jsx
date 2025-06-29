@@ -8,6 +8,7 @@ import { API_BASE_URL_AI } from '../../config';
 
 // Function to fetch recommendations from backend
 const fetchRecommendations = async (date, surface, service, chambre, element) => {
+  console.log("Calling Flask AI:✅✅✅", API_BASE_URL_AI);     // ✅ Debug line
   const response = await fetch(`${API_BASE_URL_AI}/predict`, {
     method: 'POST',
     headers: {

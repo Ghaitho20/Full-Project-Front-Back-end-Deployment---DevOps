@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaTrash, FaUpload } from 'react-icons/fa';
 import axios from 'axios';
 import '../../../assets/css/Stats/editStatsPage/DiseaseEditor.css';
-
+import { API_BASE_URL } from '../../../config';
 const DiseaseEditor = () => {
   const [diseases, setDiseases] = useState([]);
 

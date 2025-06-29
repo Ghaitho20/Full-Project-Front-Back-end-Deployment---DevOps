@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../../assets/css/Stats/editStatsPage/TransplantDiseasesInput.css';
 import { getToken } from '../../Security&Auth/authUtils'; // Ajuste le chemin selon ta structure
-
+import { API_BASE_URL } from '../../../config';
 const TransplantDiseasesInput = ({ onSubmit }) => {
   const [diseasesList, setDiseasesList] = useState([]);
   const [totalPercentage, setTotalPercentage] = useState(0);

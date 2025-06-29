@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaUserMd, FaUserNurse, FaUsers } from 'react-icons/fa';
 import '../../../assets/css/Stats/editStatsPage/StaffPatientStats.css';
 import { getToken } from '../../Security&Auth/authUtils'; // ajuste le chemin si nécessaire
+import { API_BASE_URL } from '../../../config';
 
 const StaffPatientStats = ({ onSubmit }) => {
   const [doctors, setDoctors] = useState(0);

@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: centregreffeDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./pcd_back/backend
+    container_name: backend_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/centregreffeDB
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123456
+
+  frontend:
+    build: ./pcd_front/
+    container_name: frontend_app
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+      - flask_ai
+  flask_ai:
+    build: ./ai
+    container_name: flask_ai
+    ports:
+      - "5000:5000"
+      
+
+# 👇 This must be at the root of the file (outside services)
+volumes:
+  pgdata:

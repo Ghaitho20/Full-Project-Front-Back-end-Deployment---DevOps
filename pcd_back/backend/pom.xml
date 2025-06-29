@@ -105,8 +105,8 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Custom modules -->
-        <dependency>
+        <!-- 
+                <dependency>
             <groupId>com.example</groupId>
             <artifactId>dynamicDATA</artifactId>
             <version>0.0.1-SNAPSHOT</version>
@@ -116,7 +116,11 @@
             <artifactId>demo</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-    </dependencies>
+        
+        
+        Custom modules -->
+        </dependencies>
+
 
     <build>
         <plugins>

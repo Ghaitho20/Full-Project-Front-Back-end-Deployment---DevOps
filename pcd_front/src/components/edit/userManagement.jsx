@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaUserPlus, FaTrash } from 'react-icons/fa';
 import '../../assets/css/edit/userManagement.css';
 import { toast } from 'react-toastify';
-
+import { API_BASE_URL } from '../../config';
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
   const [name, setName] = useState('');
@@ -26,7 +26,7 @@ const UserManagement = () => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
       
-      const response = await axios.get(`${API_BASE}/getAllUsers`, {
+      const response = await axios.get(`${API_BASE_URL}/getAllUsers`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
@@ -41,7 +41,7 @@ const UserManagement = () => {
   // Ajouter un utilisateur
   const addUserToBackend = async (user) => {
     try {
-      const response = await axios.post(`${API_BASE}/add`, user);
+      const response = await axios.post(`${API_BASE_URL}/add`, user);
       alert(response.data);
       fetchAllUsers(); // Met à jour la liste après ajout
     } catch (err) {
@@ -56,7 +56,7 @@ const UserManagement = () => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
   
-      await axios.delete(`${API_BASE}/delete-by-email`, {
+      await axios.delete(`${API_BASE_URL}/delete-by-email`, {
         headers: { Authorization: `Bearer ${token}` },
         params: { email },
       });

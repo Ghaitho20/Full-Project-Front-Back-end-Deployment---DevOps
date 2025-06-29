@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../assets/css/edit/editMembres.css';
+import { API_BASE_URL } from '../../config';
 
 const MembreForm = ({ onSubmit, initialData = {} }) => {
   const [nom, setNom] = useState(initialData.nom || '');

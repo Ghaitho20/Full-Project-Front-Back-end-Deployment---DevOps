@@ -3,6 +3,8 @@ import axios from 'axios';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 import '../../../assets/css/Stats/Hygiene/selectionBarEditor.css';
 import { getToken } from '../../Security&Auth/authUtils'; // Adjust path if needed
+import { API_BASE_URL } from '../../../config';
+
 
 const DisinfectantEditor = () => {
   const [entries, setEntries] = useState([]);

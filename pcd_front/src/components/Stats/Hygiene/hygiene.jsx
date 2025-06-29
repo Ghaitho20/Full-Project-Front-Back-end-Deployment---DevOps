@@ -4,6 +4,7 @@ import "../../../assets/css/Stats/DiseaseOverview/diseaseOverview.css";
 import SelectionBar from "./selectionBar";
 import Footer from '../../footer/footer';
 import ChatBot from "../../ChatBot/ChatBot";
+import { API_BASE_URL} from '../../../config';
 
 // ✅ Import du token
 import { getToken } from "../../Security&Auth/authUtils"; // Assure-toi que ce chemin est correct

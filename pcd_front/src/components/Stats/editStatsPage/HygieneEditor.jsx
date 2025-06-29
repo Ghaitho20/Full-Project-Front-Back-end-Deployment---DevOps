@@ -3,7 +3,7 @@ import { FaTrash, FaUpload } from 'react-icons/fa';
 import axios from 'axios';
 import '../../../assets/css/Stats/editStatsPage/DiseaseEditor.css';
 import { getToken } from '../../Security&Auth/authUtils';
-
+import { API_BASE_URL } from '../../../config';
 const getAuthHeaders = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user?.token;

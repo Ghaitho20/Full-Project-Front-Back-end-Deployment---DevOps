@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../../assets/css/Stats/editStatsPage/EditParagraphActPha.module.css';
 import { FaSave } from 'react-icons/fa';
+import { API_BASE_URL } from '../../../config';
 
 // ✅ Import du token
 import { getToken } from '../../Security&Auth/authUtils'; // Assure-toi que ce chemin est correct

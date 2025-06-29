@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import DropDownButton from './dropdownbtn';
 import { BarChart } from './BarChart';
 import { getToken } from "../../Security&Auth/authUtils"; // ✅ adapte le chemin si nécessaire
+import { API_BASE_URL } from '../../../config';
 
 function SelectionBar() {
   const [chartData, setChartData] = useState([]);

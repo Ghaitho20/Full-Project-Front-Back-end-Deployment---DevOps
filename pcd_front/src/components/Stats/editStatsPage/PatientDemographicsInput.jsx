@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaUsers } from 'react-icons/fa';
 import '../../../assets/css/Stats/editStatsPage/PatientDemographicsInput.css';
 import { getToken } from '../../Security&Auth/authUtils'; // Adapte le chemin si nécessaire
+import { API_BASE_URL } from '../../../config';
 
 const PatientDemographicsInput = ({ onSubmit }) => {
   const [demographics, setDemographics] = useState({

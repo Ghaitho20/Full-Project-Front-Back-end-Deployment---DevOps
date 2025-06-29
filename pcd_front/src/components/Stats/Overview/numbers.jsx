@@ -4,6 +4,7 @@ import patient from '../../../assets/images/Stats/Overview/patient.png';
 import styles from '../../../assets/css/Stats/Overview/numbers.module.css';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Security&Auth/authUtils'; // Assure-toi du chemin
+import { API_BASE_URL } from '../../../config';
 
 export const Numbers = () => {
     const [doctorCount, setDoctorCount] = useState(0);
