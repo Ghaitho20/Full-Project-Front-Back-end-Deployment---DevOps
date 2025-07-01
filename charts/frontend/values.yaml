@@ -1,15 +1,15 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/your-org/backend
+  repository: ghaitho20/pcd_frontend
   tag: latest
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
 
 resources: {}
 
-namespace: backend
+namespace: frontend
 

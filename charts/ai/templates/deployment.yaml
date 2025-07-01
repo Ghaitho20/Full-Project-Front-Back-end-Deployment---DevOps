@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: ai
   labels:
-    app: backend
+    app: ai
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: backend
+      app: ai
   template:
     metadata:
       labels:
-        app: backend
+        app: ai
     spec:
       containers:
-        - name: backend
+        - name: ai
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 8080
-
+            - containerPort: 5000
