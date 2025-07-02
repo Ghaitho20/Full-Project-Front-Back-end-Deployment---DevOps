@@ -1,0 +1,12 @@
+auth:
+  username: pcd_user
+  password: pcd_password
+  database: pcd_db
+
+primary:
+  persistence:
+    enabled: false  # for dev only, disable storage
+
+service:
+  port: 5432
+
