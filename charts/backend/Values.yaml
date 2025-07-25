@@ -14,16 +14,12 @@ resources: {}
 namespace: backend
 
 env:
-  - name: DB_HOST
-    value: "postgres-db-postgresql.db.svc.cluster.local"
-  - name: DB_PORT
-    value: "5432"
-  - name: DB_NAME
-    value: "pcd_db"
-  - name: DB_USER
-    value: "pcd_user"
-  - name: DB_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: postgres-db-postgresql
-        key: password
+  DB_HOST: "postgres-db-postgresql.backend.svc.cluster.local"
+  DB_PORT: "5432"
+  DB_NAME: "centregreffeDB"
+  DB_USER: "postgres"
+  DB_PASSWORD_SECRET_NAME: postgres-db-postgresql
+  DB_PASSWORD_SECRET_KEY: postgres-password
+  
+
+

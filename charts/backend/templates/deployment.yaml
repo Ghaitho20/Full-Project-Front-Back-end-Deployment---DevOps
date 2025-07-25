@@ -21,14 +21,16 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            {{- range .Values.env }}
-            - name: {{ .name }}
-              {{- if .value }}
-              value: "{{ .value }}"
-              {{- else if .valueFrom }}
+            - name: DB_HOST
+              value: {{ .Values.env.DB_HOST | quote }}
+            - name: DB_PORT
+              value: {{ .Values.env.DB_PORT | quote }}
+            - name: DB_NAME
+              value: {{ .Values.env.DB_NAME | quote }}
+            - name: DB_USER
+              value: {{ .Values.env.DB_USER | quote }}
+            - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .valueFrom.secretKeyRef.name }}
-                  key: {{ .valueFrom.secretKeyRef.key }}
-              {{- end }}
-            {{- end }}
+                  name: {{ .Values.env.DB_PASSWORD_SECRET_NAME }}
+                  key: {{ .Values.env.DB_PASSWORD_SECRET_KEY }}

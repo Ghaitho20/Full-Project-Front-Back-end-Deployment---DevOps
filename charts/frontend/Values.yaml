@@ -13,3 +13,5 @@ resources: {}
 
 namespace: frontend
 
+db:
+  host: 
