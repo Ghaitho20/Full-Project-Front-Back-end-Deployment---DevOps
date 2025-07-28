@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Value;  // Add this import
+
 
 
 @Service
@@ -25,10 +27,15 @@ public class UserService {
     private final EmailService emailService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final JwtUtil jwtUtil;
+    @Value("${frontend.url}")
+    private String frontendUrl;
+
 
 
 
     public void addUser(UserDTO userDTO){
+
+
 
         //verifier si le l email est deja dans la base de donnée
         if (userRepository.existsByEmail(userDTO.getEmail())){
@@ -78,7 +85,7 @@ public class UserService {
         userRepository.save(user);
 
         String subject ="Réinitialisation du mot de passe";
-        String resetLink = "http://localhost:3000/ResetPassword?token=" + token;
+        String resetLink = frontendUrl + "/ResetPassword?token=" + token;
         String body = "Click here to reset your password: " + resetLink;
         emailService.sendEmail(email,subject,body);
     }

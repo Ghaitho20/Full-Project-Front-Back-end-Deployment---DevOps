@@ -20,6 +20,8 @@ env:
   DB_USER: "postgres"
   DB_PASSWORD_SECRET_NAME: postgres-db-postgresql
   DB_PASSWORD_SECRET_KEY: postgres-password
-  
+
+frontend:
+  url: "lhttp://localhost:3000"  
 
 

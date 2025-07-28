@@ -34,3 +34,5 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.env.DB_PASSWORD_SECRET_NAME }}
                   key: {{ .Values.env.DB_PASSWORD_SECRET_KEY }}
+            - name: FRONTEND_URL
+              value: "{{.Values.frontend.url}}"

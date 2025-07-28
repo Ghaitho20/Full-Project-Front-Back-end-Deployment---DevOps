@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/actualites")
-@CrossOrigin(origins = "http://localhost:3000")
+
 public class ActualiteController {
     @Autowired
     private ActualiteService service;

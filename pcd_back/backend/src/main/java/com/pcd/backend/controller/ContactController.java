@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.pcd.backend.model.MessageContact;
 import com.pcd.backend.services.MessageContactService;
 
-@CrossOrigin(origins = "http://localhost:3000") // ou l'URL de ton front
+
 @RestController
 @RequestMapping("/api/contact")
 public class ContactController {

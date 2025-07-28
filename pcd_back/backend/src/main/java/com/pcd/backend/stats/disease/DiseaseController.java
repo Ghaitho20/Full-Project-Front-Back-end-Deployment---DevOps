@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-@CrossOrigin(origins ="http://localhost:3000")
+
 public class DiseaseController {
     private final DiseaseRepository repo;
 

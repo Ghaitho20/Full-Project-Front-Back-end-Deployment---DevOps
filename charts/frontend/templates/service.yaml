@@ -10,4 +10,3 @@ spec:
       port: {{ .Values.service.port }}
       targetPort: 80
   type: {{ .Values.service.type }}
-
