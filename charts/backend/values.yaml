@@ -14,7 +14,7 @@ resources: {}
 namespace: backend
 
 env:
-  DB_HOST: "postgres-db-postgresql.backend.svc.cluster.local"
+  DB_HOST: "postgres-db-postgresql.backendnp.svc.cluster.local"
   DB_PORT: "5432"
   DB_NAME: "centregreffeDB"
   DB_USER: "postgres"
@@ -22,6 +22,6 @@ env:
   DB_PASSWORD_SECRET_KEY: postgres-password
 
 frontend:
-  url: "lhttp://localhost:3000"  
+  url: "http://localhost:3000"  
 
 
