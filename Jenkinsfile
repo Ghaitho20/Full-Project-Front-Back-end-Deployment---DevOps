@@ -25,7 +25,7 @@ pipeline {
             parallel {
                 stage('Frontend') {
                     steps {
-                        dir('frontend') {
+                        dir('pcd_front') {
                             withSonarQubeEnv('sonar-server') {
                                 sh """ 
                                 $SCANNER_HOME/bin/sonar-scanner \
@@ -38,7 +38,7 @@ pipeline {
                 }
                 stage('Backend') {
                     steps {
-                        dir('backend') {
+                        dir('pcd_back/backend') {
                             withSonarQubeEnv('sonar-server') {
                                 sh """
                                 ./mvnw sonar:sonar \
