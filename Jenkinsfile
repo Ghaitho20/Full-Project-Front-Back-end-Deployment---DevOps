@@ -41,9 +41,10 @@ pipeline {
                         dir('pcd_back/backend') {
                             withSonarQubeEnv('sonar-server') {
                                 sh """
-                                ./mvnw sonar:sonar \
+                                ./mvnw clean compile sonar:sonar \
                                 -Dsonar.projectName=backend \
-                                -Dsonar.projectKey=backend
+                                -Dsonar.projectKey=backend \
+                                -Dsonar.java.binaries=target/classes
                                 """
                             }
                         }
