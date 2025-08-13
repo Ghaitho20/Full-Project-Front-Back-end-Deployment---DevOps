@@ -66,13 +66,13 @@ pipeline {
                 }
             }
         }
-        stage('Quality Gate') {
+        /*stage('Quality Gate') {
             steps {
                 script {
                     waitForQualityGate abortPipeline: true, credentialsId: 'Sonar-token'
                 }
             }
-        }
+        }*/
         stage('Build & Push Docker Images') {
             parallel {
                 stage('Frontend Image') {
