@@ -116,6 +116,14 @@ pipeline {
                 }
             }
         }
+        stage('Trivy Scan Images') {
+            steps {
+                sh "trivy image --format table -o trivy-frontend-image-report.html $REGISTRY/frontend:$IMAGE_TAG"
+                sh "trivy image --format table -o trivy-backend-image-report.html $REGISTRY/backend:$IMAGE_TAG"
+                sh "trivy image --format table -o trivy-ai-image-report.html $REGISTRY/ai:$IMAGE_TAG"
+            }
+        }
+
 
 
 
