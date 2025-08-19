@@ -11,7 +11,120 @@ pipeline {
 
     stages {
 
-        
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('Git Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Ghaitho20/Full-Project-Front-Back-end-Deployment---DevOps.git'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            parallel {
+                stage('Frontend') {
+                    steps {
+                        dir('pcd_front') {
+                            withSonarQubeEnv('sonar-server') {
+                                sh """ 
+                                $SCANNER_HOME/bin/sonar-scanner \
+                                -Dsonar.projectName=frontend \
+                                -Dsonar.projectKey=frontend
+                                """
+                            }
+                        }
+                    }
+                }
+                stage('Backend') {
+                    steps {
+                        dir('pcd_back/backend') {
+                            withSonarQubeEnv('sonar-server') {
+                                sh """
+                                ./mvnw clean compile sonar:sonar \
+                                -Dsonar.projectName=backend \
+                                -Dsonar.projectKey=backend \
+                                -Dsonar.java.binaries=target/classes
+                                """
+                            }
+                        }
+                    }
+                }
+                stage('AI Service') {
+                    steps {
+                        dir('ai') {
+                            withSonarQubeEnv('sonar-server') {
+                                sh """
+                                $SCANNER_HOME/bin/sonar-scanner \
+                                -Dsonar.projectName=ai \
+                                -Dsonar.projectKey=ai
+                                """
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*stage('Quality Gate') {
+            steps {
+                script {
+                    waitForQualityGate abortPipeline: true, credentialsId: 'Sonar-token'
+                }
+            }
+        }*/
+        stage('Build & Push Docker Images') {
+            parallel {
+                stage('Frontend Image') {
+                    steps {
+                        dir('pcd_front') {
+                            withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                                sh '''
+                                docker build -t $DOCKERHUB_USERNAME/frontend:$IMAGE_TAG .
+                                echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                                docker push $DOCKERHUB_USERNAME/frontend:$IMAGE_TAG
+                                '''
+                            }
+                        }
+                    }
+                }
+                stage('Backend Image') {
+                    steps {
+                        dir('pcd_back/backend') {
+                            withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                                sh '''
+                                docker build -t $DOCKERHUB_USERNAME/backend:$IMAGE_TAG .
+                                echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                                docker push $DOCKERHUB_USERNAME/backend:$IMAGE_TAG
+                                '''
+                            }
+                        }
+                    }
+                }
+                stage('AI Image') {
+                    steps {
+                        dir('ai') {
+                            withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                                sh '''
+                                docker build -t $DOCKERHUB_USERNAME/ai:$IMAGE_TAG .
+                                echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                                docker push $DOCKERHUB_USERNAME/ai:$IMAGE_TAG
+                                '''
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage('Trivy Scan Images') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    sh "trivy image --format table -o trivy-frontend-image-report.html $DOCKERHUB_USERNAME/frontend:$IMAGE_TAG"
+                    sh "trivy image --scanners vuln --timeout 10m --format table -o trivy-backend-image-report.html $DOCKERHUB_USERNAME/backend:$IMAGE_TAG"
+                    sh "trivy image --format table -o trivy-ai-image-report.html $DOCKERHUB_USERNAME/ai:$IMAGE_TAG"
+                }
+            }
+        }
 
         stage('Update Helm Chart Values & Push') {
             steps {
@@ -58,14 +171,13 @@ pipeline {
                 }
             }
         }
-
-
-
-
-
-
-
-
-        
     }
 }
+
+
+
+
+
+
+
+
