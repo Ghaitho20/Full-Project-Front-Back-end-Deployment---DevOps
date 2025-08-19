@@ -1,0 +1,72 @@
+# Frontend Application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Ghaitho20/Full-Project-Front-Back-end-Deployment---DevOps.git
+    targetRevision: main
+    path: ./charts/frontend
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: frontendnp
+  syncPolicy:
+    automated:        #without automated we had to still typing sync every time 
+      prune: true     #Auto-delete resources removed from Git
+      selfHeal: true  #Auto-correct any drift in the cluster to match Git
+
+---
+
+# Backend Application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Ghaitho20/Full-Project-Front-Back-end-Deployment---DevOps.git
+    targetRevision: main
+    path: ./charts/backend
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: backendnp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+
+# AI Application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ai
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Ghaitho20/Full-Project-Front-Back-end-Deployment---DevOps.git
+    targetRevision: main
+    path: ./charts/ai
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ainp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
