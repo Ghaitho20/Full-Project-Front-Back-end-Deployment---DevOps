@@ -119,9 +119,9 @@ pipeline {
         stage('Trivy Scan Images') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                    sh "trivy image --format table -o trivy-frontend-image-report.html $DOCKERHUB_USERNAME/frontend:$IMAGE_TAG"
+                    sh "trivy image --scanners vuln --timeout 10m --format table -o trivy-frontend-image-report.html $DOCKERHUB_USERNAME/frontend:$IMAGE_TAG"
                     sh "trivy image --scanners vuln --timeout 10m --format table -o trivy-backend-image-report.html $DOCKERHUB_USERNAME/backend:$IMAGE_TAG"
-                    sh "trivy image --format table -o trivy-ai-image-report.html $DOCKERHUB_USERNAME/ai:$IMAGE_TAG"
+                    sh "trivy image --scanners vuln --timeout 10m  --format table -o trivy-ai-image-report.html $DOCKERHUB_USERNAME/ai:$IMAGE_TAG"
                 }
             }
         }
