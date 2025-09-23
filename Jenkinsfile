@@ -125,7 +125,15 @@ pipeline {
                 }
             }
         }
-
+        stage('Publish Reports') {
+            steps {
+                publishHTML([
+                    reportDir: '.',
+                    reportFiles: 'trivy-frontend-image-report.html,trivy-backend-image-report.html,trivy-ai-image-report.html',
+                    reportName: 'Trivy Security Reports'
+                ])
+            }
+        }
         stage('Update Helm Chart Values & Push') {
             steps {
                 script {
