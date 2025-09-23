@@ -130,7 +130,10 @@ pipeline {
                 publishHTML([
                     reportDir: '.',
                     reportFiles: 'trivy-frontend-image-report.html,trivy-backend-image-report.html,trivy-ai-image-report.html',
-                    reportName: 'Trivy Security Reports'
+                    reportName: 'Trivy Security Reports',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: true
                 ])
             }
         }
