@@ -4,9 +4,9 @@ Report Summary
 ┌────────────────────────────────────┬────────┬─────────────────┐
 │               Target               │  Type  │ Vulnerabilities │
 ├────────────────────────────────────┼────────┼─────────────────┤
-│ ghaitho20/backend:35 (debian 11.3) │ debian │       261       │
+│ ghaitho20/backend:40 (debian 11.3) │ debian │       261       │
 ├────────────────────────────────────┼────────┼─────────────────┤
-│ app/app.jar                        │  jar   │       11        │
+│ app/app.jar                        │  jar   │       12        │
 └────────────────────────────────────┴────────┴─────────────────┘
 Legend:
 - '-': Not scanned
@@ -22,9 +22,9 @@ Learn more and start using VEX: https://trivy.dev/v0.65/docs/supply-chain/vex/re
 To disable this notice, set the TRIVY_DISABLE_VEX_NOTICE environment variable.
 
 
-ghaitho20/backend:35 (debian 11.3)
+ghaitho20/backend:40 (debian 11.3)
 ==================================
-Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 88, HIGH: 62, CRITICAL: 13)
+Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 63, CRITICAL: 13)
 
 ┌────────────────────┬─────────────────────┬──────────┬──────────────┬─────────────────────────┬─────────────────────────┬──────────────────────────────────────────────────────────────┐
 │      Library       │    Vulnerability    │ Severity │    Status    │    Installed Version    │      Fixed Version      │                            Title                             │
@@ -274,7 +274,10 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 88, HIGH: 62, CRITICAL: 13)
 │                    │ CVE-2024-0567       │          │              │                         │                         │ gnutls: rejects certificate chain with distributed trust     │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-0567                    │
 │                    ├─────────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2025-32990      │          │              │                         │ 3.7.1-5+deb11u8         │ gnutls: Vulnerability in GnuTLS certtool template parsing    │
+│                    │ CVE-2025-32988      │          │              │                         │ 3.7.1-5+deb11u8         │ gnutls: Vulnerability in GnuTLS otherName SAN export         │
+│                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-32988                   │
+│                    ├─────────────────────┤          │              │                         │                         ├──────────────────────────────────────────────────────────────┤
+│                    │ CVE-2025-32990      │          │              │                         │                         │ gnutls: Vulnerability in GnuTLS certtool template parsing    │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-32990                   │
 │                    ├─────────────────────┼──────────┤              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2021-4209       │ MEDIUM   │              │                         │ 3.7.1-5+deb11u1         │ GnuTLS: Null pointer dereference in MD_UPDATE                │
@@ -293,10 +296,7 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 88, HIGH: 62, CRITICAL: 13)
 │                    │ CVE-2024-28835      │          │              │                         │                         │ gnutls: potential crash during chain building/verification   │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-28835                   │
 │                    ├─────────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2025-32988      │          │              │                         │ 3.7.1-5+deb11u8         │ gnutls: Vulnerability in GnuTLS otherName SAN export         │
-│                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-32988                   │
-│                    ├─────────────────────┤          │              │                         │                         ├──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2025-6395       │          │              │                         │                         │ gnutls: NULL pointer dereference in                          │
+│                    │ CVE-2025-6395       │          │              │                         │ 3.7.1-5+deb11u8         │ gnutls: NULL pointer dereference in                          │
 │                    │                     │          │              │                         │                         │ _gnutls_figure_common_ciphersuite()                          │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-6395                    │
 │                    ├─────────────────────┼──────────┼──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
@@ -941,50 +941,54 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 88, HIGH: 62, CRITICAL: 13)
 
 Java (jar)
 ==========
-Total: 11 (UNKNOWN: 0, LOW: 3, MEDIUM: 5, HIGH: 3, CRITICAL: 0)
+Total: 12 (UNKNOWN: 0, LOW: 3, MEDIUM: 5, HIGH: 4, CRITICAL: 0)
 
-┌─────────────────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬──────────────────────────┬──────────────────────────────────────────────────────────────┐
-│                       Library                       │ Vulnerability  │ Severity │ Status │ Installed Version │      Fixed Version       │                            Title                             │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.apache.tomcat.embed:tomcat-embed-core (app.jar) │ CVE-2025-48988 │ HIGH     │ fixed  │ 10.1.39           │ 11.0.8, 10.1.42, 9.0.106 │ tomcat: Apache Tomcat DoS in multipart upload                │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-48988                   │
-│                                                     ├────────────────┼──────────┤        │                   ├──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-31650 │ MEDIUM   │        │                   │ 9.0.104, 10.1.40, 11.0.6 │ tomcat: Apache Tomcat: DoS via malformed HTTP/2              │
-│                                                     │                │          │        │                   │                          │ PRIORITY_UPDATE frame                                        │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-31650                   │
-│                                                     ├────────────────┤          │        │                   ├──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-49125 │          │        │                   │ 11.0.8, 10.1.42, 9.0.106 │ tomcat: Apache Tomcat: Security constraint bypass for        │
-│                                                     │                │          │        │                   │                          │ pre/post-resources                                           │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-49125                   │
-│                                                     ├────────────────┼──────────┤        │                   ├──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-31651 │ LOW      │        │                   │ 9.0.104, 10.1.40, 11.0.6 │ tomcat: Apache Tomcat: Bypass of rules in Rewrite Valve      │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-31651                   │
-│                                                     ├────────────────┤          │        │                   ├──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-46701 │          │        │                   │ 9.0.105, 10.1.41, 11.0.7 │ tomcat: Apache Tomcat: Security constraint bypass for CGI    │
-│                                                     │                │          │        │                   │                          │ scripts                                                      │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-46701                   │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.eclipse.angus:smtp (app.jar)                    │ CVE-2025-7962  │ MEDIUM   │        │ 2.0.3             │ 2.0.4                    │ com.sun.mail/jakarta.mail: Jakarta Mail SMTP Injection       │
-│                                                     │                │          │        │                   │                          │ Vulnerability                                                │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-7962                    │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.postgresql:postgresql (app.jar)                 │ CVE-2025-49146 │ HIGH     │        │ 42.7.5            │ 42.7.7                   │ pgjdbc: pgjdbc insecure authentication in channel binding    │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-49146                   │
-├─────────────────────────────────────────────────────┼────────────────┤          │        ├───────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework.boot:spring-boot (app.jar)      │ CVE-2025-22235 │          │        │ 3.4.4             │ 3.3.11, 3.4.5            │ org.springframework.boot/spring-boot: Spring Boot            │
-│                                                     │                │          │        │                   │                          │ EndpointRequest.to() creates wrong matcher if actuator       │
-│                                                     │                │          │        │                   │                          │ endpoint is not...                                           │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-22235                   │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework:spring-context (app.jar)        │ CVE-2025-22233 │ LOW      │        │ 6.2.5             │ 6.2.7, 6.1.20            │ CVE-2024-38820 ensured Locale-independent, lowercase         │
-│                                                     │                │          │        │                   │                          │ conversion for bo ...                                        │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-22233                   │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        │                   ├──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework:spring-web (app.jar)            │ CVE-2025-41234 │ MEDIUM   │        │                   │ 6.2.8, 6.1.21            │ springframework: Reflected download attack in Spring         │
-│                                                     │                │          │        │                   │                          │ Framework with non-ASCII headers                             │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-41234                   │
-├─────────────────────────────────────────────────────┼────────────────┤          │        │                   ├──────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework:spring-webmvc (app.jar)         │ CVE-2025-41242 │          │        │                   │ 6.2.10                   │ org.springframework/spring-webmvc: Spring Framework MVC path │
-│                                                     │                │          │        │                   │                          │ traversal vulnerability                                      │
-│                                                     │                │          │        │                   │                          │ https://avd.aquasec.com/nvd/cve-2025-41242                   │
-└─────────────────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴──────────────────────────┴──────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬──────────────────────────────────────────────────────────────┐
+│                       Library                       │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                             │
+├─────────────────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core (app.jar) │ CVE-2025-48988 │ HIGH     │ fixed  │ 10.1.39           │ 11.0.8, 10.1.42, 9.0.106  │ tomcat: Apache Tomcat DoS in multipart upload                │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-48988                   │
+│                                                     ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                     │ CVE-2025-48989 │          │        │                   │ 11.0.10, 10.1.44, 9.0.108 │ tomcat: http/2 "MadeYouReset" DoS attack through HTTP/2      │
+│                                                     │                │          │        │                   │                           │ control frames                                               │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-48989                   │
+│                                                     ├────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                     │ CVE-2025-31650 │ MEDIUM   │        │                   │ 9.0.104, 10.1.40, 11.0.6  │ tomcat: Apache Tomcat: DoS via malformed HTTP/2              │
+│                                                     │                │          │        │                   │                           │ PRIORITY_UPDATE frame                                        │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-31650                   │
+│                                                     ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                     │ CVE-2025-49125 │          │        │                   │ 11.0.8, 10.1.42, 9.0.106  │ tomcat: Apache Tomcat: Security constraint bypass for        │
+│                                                     │                │          │        │                   │                           │ pre/post-resources                                           │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-49125                   │
+│                                                     ├────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                     │ CVE-2025-31651 │ LOW      │        │                   │ 9.0.104, 10.1.40, 11.0.6  │ tomcat: Apache Tomcat: Bypass of rules in Rewrite Valve      │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-31651                   │
+│                                                     ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                     │ CVE-2025-46701 │          │        │                   │ 9.0.105, 10.1.41, 11.0.7  │ tomcat: Apache Tomcat: Security constraint bypass for CGI    │
+│                                                     │                │          │        │                   │                           │ scripts                                                      │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-46701                   │
+├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.eclipse.angus:smtp (app.jar)                    │ CVE-2025-7962  │ MEDIUM   │        │ 2.0.3             │ 2.0.4                     │ com.sun.mail/jakarta.mail: Jakarta Mail SMTP Injection       │
+│                                                     │                │          │        │                   │                           │ Vulnerability                                                │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-7962                    │
+├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.postgresql:postgresql (app.jar)                 │ CVE-2025-49146 │ HIGH     │        │ 42.7.5            │ 42.7.7                    │ pgjdbc: pgjdbc insecure authentication in channel binding    │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-49146                   │
+├─────────────────────────────────────────────────────┼────────────────┤          │        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework.boot:spring-boot (app.jar)      │ CVE-2025-22235 │          │        │ 3.4.4             │ 3.3.11, 3.4.5             │ org.springframework.boot/spring-boot: Spring Boot            │
+│                                                     │                │          │        │                   │                           │ EndpointRequest.to() creates wrong matcher if actuator       │
+│                                                     │                │          │        │                   │                           │ endpoint is not...                                           │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-22235                   │
+├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-context (app.jar)        │ CVE-2025-22233 │ LOW      │        │ 6.2.5             │ 6.2.7, 6.1.20             │ CVE-2024-38820 ensured Locale-independent, lowercase         │
+│                                                     │                │          │        │                   │                           │ conversion for bo ...                                        │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-22233                   │
+├─────────────────────────────────────────────────────┼────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-web (app.jar)            │ CVE-2025-41234 │ MEDIUM   │        │                   │ 6.2.8, 6.1.21             │ springframework: Reflected download attack in Spring         │
+│                                                     │                │          │        │                   │                           │ Framework with non-ASCII headers                             │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41234                   │
+├─────────────────────────────────────────────────────┼────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-webmvc (app.jar)         │ CVE-2025-41242 │          │        │                   │ 6.2.10                    │ org.springframework/spring-webmvc: Spring Framework MVC path │
+│                                                     │                │          │        │                   │                           │ traversal vulnerability                                      │
+│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41242                   │
+└─────────────────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴──────────────────────────────────────────────────────────────┘
