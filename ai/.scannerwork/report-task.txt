@@ -2,5 +2,5 @@ projectKey=ai
 serverUrl=http://localhost:9000
 serverVersion=25.2.0.102705
 dashboardUrl=http://localhost:9000/dashboard?id=ai
-ceTaskId=b3e74119-dcee-4730-9b0a-eb6dbe60c7d4
-ceTaskUrl=http://localhost:9000/api/ce/task?id=b3e74119-dcee-4730-9b0a-eb6dbe60c7d4
+ceTaskId=64042b32-6144-456a-81f4-eb17a32af80c
+ceTaskUrl=http://localhost:9000/api/ce/task?id=64042b32-6144-456a-81f4-eb17a32af80c

@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ghaitho20/pcd_backend
-  tag: 43
+  tag: 44
   pullPolicy: IfNotPresent
 
 service:
