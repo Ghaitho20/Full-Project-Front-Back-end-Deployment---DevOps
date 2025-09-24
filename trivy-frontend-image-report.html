@@ -4,9 +4,36 @@ Report Summary
 ┌───────────────────────────────────────┬────────┬─────────────────┐
 │                Target                 │  Type  │ Vulnerabilities │
 ├───────────────────────────────────────┼────────┼─────────────────┤
-│ ghaitho20/frontend:40 (alpine 3.21.4) │ alpine │        0        │
+│ ghaitho20/frontend:43 (alpine 3.21.4) │ alpine │        3        │
 └───────────────────────────────────────┴────────┴─────────────────┘
 Legend:
 - '-': Not scanned
 - '0': Clean (no security findings detected)
 
+
+For OSS Maintainers: VEX Notice
+--------------------------------
+If you're an OSS maintainer and Trivy has detected vulnerabilities in your project that you believe are not actually exploitable, consider issuing a VEX (Vulnerability Exploitability eXchange) statement.
+VEX allows you to communicate the actual status of vulnerabilities in your project, improving security transparency and reducing false positives for your users.
+Learn more and start using VEX: https://trivy.dev/v0.65/docs/supply-chain/vex/repo#publishing-vex-documents
+
+To disable this notice, set the TRIVY_DISABLE_VEX_NOTICE environment variable.
+
+
+ghaitho20/frontend:43 (alpine 3.21.4)
+=====================================
+Total: 3 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 1, CRITICAL: 0)
+
+┌──────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬────────────────────────────────────────────────────────────┐
+│ Library  │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                           Title                            │
+├──────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼────────────────────────────────────────────────────────────┤
+│ libexpat │ CVE-2025-59375 │ HIGH     │ fixed  │ 2.7.0-r0          │ 2.7.2-r0      │ expat: libexpat in Expat allows attackers to trigger large │
+│          │                │          │        │                   │               │ dynamic memory allocations...                              │
+│          │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-59375                 │
+├──────────┼────────────────┼──────────┤        ├───────────────────┼───────────────┼────────────────────────────────────────────────────────────┤
+│ tiff     │ CVE-2025-8961  │ LOW      │        │ 4.7.0-r0          │ 4.7.1-r0      │ libtiff: LibTIFF memory corruption                         │
+│          │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-8961                  │
+│          ├────────────────┤          │        │                   │               ├────────────────────────────────────────────────────────────┤
+│          │ CVE-2025-9165  │          │        │                   │               │ libtiff: LibTIFF memory leak                               │
+│          │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9165                  │
+└──────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴────────────────────────────────────────────────────────────┘

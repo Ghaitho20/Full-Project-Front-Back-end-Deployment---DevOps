@@ -4,9 +4,9 @@ Report Summary
 ┌────────────────────────────────────┬────────┬─────────────────┐
 │               Target               │  Type  │ Vulnerabilities │
 ├────────────────────────────────────┼────────┼─────────────────┤
-│ ghaitho20/backend:40 (debian 11.3) │ debian │       261       │
+│ ghaitho20/backend:43 (debian 11.3) │ debian │       261       │
 ├────────────────────────────────────┼────────┼─────────────────┤
-│ app/app.jar                        │  jar   │       12        │
+│ app/app.jar                        │  jar   │       14        │
 └────────────────────────────────────┴────────┴─────────────────┘
 Legend:
 - '-': Not scanned
@@ -22,9 +22,9 @@ Learn more and start using VEX: https://trivy.dev/v0.65/docs/supply-chain/vex/re
 To disable this notice, set the TRIVY_DISABLE_VEX_NOTICE environment variable.
 
 
-ghaitho20/backend:40 (debian 11.3)
+ghaitho20/backend:43 (debian 11.3)
 ==================================
-Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 63, CRITICAL: 13)
+Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 65, CRITICAL: 11)
 
 ┌────────────────────┬─────────────────────┬──────────┬──────────────┬─────────────────────────┬─────────────────────────┬──────────────────────────────────────────────────────────────┐
 │      Library       │    Vulnerability    │ Severity │    Status    │    Installed Version    │      Fixed Version      │                            Title                             │
@@ -433,48 +433,48 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 63, CRITICAL: 13)
 │                    │ CVE-2022-0563       │ LOW      │ affected     │                         │                         │ util-linux: partial disclosure of arbitrary files in chfn    │
 │                    │                     │          │              │                         │                         │ and chsh when compiled...                                    │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-0563                    │
-├────────────────────┼─────────────────────┼──────────┤              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ libpam-modules     │ CVE-2025-6020       │ HIGH     │              │ 1.4.0-9+deb11u1         │                         │ linux-pam: Linux-pam directory Traversal                     │
+├────────────────────┼─────────────────────┼──────────┼──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libpam-modules     │ CVE-2025-6020       │ HIGH     │ fixed        │ 1.4.0-9+deb11u1         │ 1.4.0-9+deb11u2         │ linux-pam: Linux-pam directory Traversal                     │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-6020                    │
 │                    ├─────────────────────┼──────────┼──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2024-10041      │ MEDIUM   │ will_not_fix │                         │                         │ pam: libpam: Libpam vulnerable to read hashed password       │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-10041                   │
 │                    ├─────────────────────┤          ├──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2024-22365      │          │ affected     │                         │                         │ pam: allowing unprivileged user to block another user        │
+│                    │ CVE-2024-22365      │          │ fixed        │                         │ 1.4.0-9+deb11u2         │ pam: allowing unprivileged user to block another user        │
 │                    │                     │          │              │                         │                         │ namespace                                                    │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-22365                   │
-├────────────────────┼─────────────────────┼──────────┤              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+├────────────────────┼─────────────────────┼──────────┤              │                         │                         ├──────────────────────────────────────────────────────────────┤
 │ libpam-modules-bin │ CVE-2025-6020       │ HIGH     │              │                         │                         │ linux-pam: Linux-pam directory Traversal                     │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-6020                    │
 │                    ├─────────────────────┼──────────┼──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2024-10041      │ MEDIUM   │ will_not_fix │                         │                         │ pam: libpam: Libpam vulnerable to read hashed password       │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-10041                   │
 │                    ├─────────────────────┤          ├──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2024-22365      │          │ affected     │                         │                         │ pam: allowing unprivileged user to block another user        │
+│                    │ CVE-2024-22365      │          │ fixed        │                         │ 1.4.0-9+deb11u2         │ pam: allowing unprivileged user to block another user        │
 │                    │                     │          │              │                         │                         │ namespace                                                    │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-22365                   │
-├────────────────────┼─────────────────────┼──────────┤              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+├────────────────────┼─────────────────────┼──────────┤              │                         │                         ├──────────────────────────────────────────────────────────────┤
 │ libpam-runtime     │ CVE-2025-6020       │ HIGH     │              │                         │                         │ linux-pam: Linux-pam directory Traversal                     │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-6020                    │
 │                    ├─────────────────────┼──────────┼──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2024-10041      │ MEDIUM   │ will_not_fix │                         │                         │ pam: libpam: Libpam vulnerable to read hashed password       │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-10041                   │
 │                    ├─────────────────────┤          ├──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2024-22365      │          │ affected     │                         │                         │ pam: allowing unprivileged user to block another user        │
+│                    │ CVE-2024-22365      │          │ fixed        │                         │ 1.4.0-9+deb11u2         │ pam: allowing unprivileged user to block another user        │
 │                    │                     │          │              │                         │                         │ namespace                                                    │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-22365                   │
-├────────────────────┼─────────────────────┼──────────┤              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+├────────────────────┼─────────────────────┼──────────┤              │                         │                         ├──────────────────────────────────────────────────────────────┤
 │ libpam0g           │ CVE-2025-6020       │ HIGH     │              │                         │                         │ linux-pam: Linux-pam directory Traversal                     │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-6020                    │
 │                    ├─────────────────────┼──────────┼──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2024-10041      │ MEDIUM   │ will_not_fix │                         │                         │ pam: libpam: Libpam vulnerable to read hashed password       │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-10041                   │
 │                    ├─────────────────────┤          ├──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2024-22365      │          │ affected     │                         │                         │ pam: allowing unprivileged user to block another user        │
+│                    │ CVE-2024-22365      │          │ fixed        │                         │ 1.4.0-9+deb11u2         │ pam: allowing unprivileged user to block another user        │
 │                    │                     │          │              │                         │                         │ namespace                                                    │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-22365                   │
-├────────────────────┼─────────────────────┼──────────┼──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ libpcre2-8-0       │ CVE-2022-1586       │ CRITICAL │ fixed        │ 10.36-2                 │ 10.36-2+deb11u1         │ pcre2: Out-of-bounds read in compile_xclass_matchingpath in  │
+├────────────────────┼─────────────────────┼──────────┤              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libpcre2-8-0       │ CVE-2022-1586       │ CRITICAL │              │ 10.36-2                 │ 10.36-2+deb11u1         │ pcre2: Out-of-bounds read in compile_xclass_matchingpath in  │
 │                    │                     │          │              │                         │                         │ pcre2_jit_compile.c                                          │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1586                    │
 │                    ├─────────────────────┤          │              │                         │                         ├──────────────────────────────────────────────────────────────┤
@@ -527,12 +527,12 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 63, CRITICAL: 13)
 ├────────────────────┼─────────────────────┼──────────┼──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │ libss2             │ CVE-2022-1304       │ HIGH     │ fixed        │ 1.46.2-2                │ 1.46.2-2+deb11u1        │ e2fsprogs: out-of-bounds read/write via crafted filesystem   │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1304                    │
-├────────────────────┼─────────────────────┼──────────┤              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ libssl1.1          │ CVE-2022-2068       │ CRITICAL │              │ 1.1.1n-0+deb11u1        │ 1.1.1n-0+deb11u3        │ openssl: the c_rehash script allows command injection        │
-│                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-2068                    │
-│                    ├─────────────────────┼──────────┤              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2022-1292       │ HIGH     │              │                         │ 1.1.1n-0+deb11u2        │ openssl: c_rehash script allows command injection            │
+├────────────────────┼─────────────────────┤          │              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libssl1.1          │ CVE-2022-1292       │          │              │ 1.1.1n-0+deb11u1        │ 1.1.1n-0+deb11u2        │ openssl: c_rehash script allows command injection            │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1292                    │
+│                    ├─────────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                    │ CVE-2022-2068       │          │              │                         │ 1.1.1n-0+deb11u3        │ openssl: the c_rehash script allows command injection        │
+│                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-2068                    │
 │                    ├─────────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2022-4450       │          │              │                         │ 1.1.1n-0+deb11u4        │ openssl: double free after calling PEM_read_bio_ex           │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-4450                    │
@@ -781,11 +781,11 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 63, CRITICAL: 13)
 │                    │ CVE-2025-6141       │ LOW      │ fix_deferred │                         │                         │ gnu-ncurses: ncurses Stack Buffer Overflow                   │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2025-6141                    │
 ├────────────────────┼─────────────────────┼──────────┼──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ openssl            │ CVE-2022-2068       │ CRITICAL │ fixed        │ 1.1.1n-0+deb11u1        │ 1.1.1n-0+deb11u3        │ openssl: the c_rehash script allows command injection        │
-│                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-2068                    │
-│                    ├─────────────────────┼──────────┤              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                    │ CVE-2022-1292       │ HIGH     │              │                         │ 1.1.1n-0+deb11u2        │ openssl: c_rehash script allows command injection            │
+│ openssl            │ CVE-2022-1292       │ HIGH     │ fixed        │ 1.1.1n-0+deb11u1        │ 1.1.1n-0+deb11u2        │ openssl: c_rehash script allows command injection            │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1292                    │
+│                    ├─────────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                    │ CVE-2022-2068       │          │              │                         │ 1.1.1n-0+deb11u3        │ openssl: the c_rehash script allows command injection        │
+│                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-2068                    │
 │                    ├─────────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
 │                    │ CVE-2022-4450       │          │              │                         │ 1.1.1n-0+deb11u4        │ openssl: double free after calling PEM_read_bio_ex           │
 │                    │                     │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-4450                    │
@@ -941,54 +941,62 @@ Total: 261 (UNKNOWN: 4, LOW: 94, MEDIUM: 87, HIGH: 63, CRITICAL: 13)
 
 Java (jar)
 ==========
-Total: 12 (UNKNOWN: 0, LOW: 3, MEDIUM: 5, HIGH: 4, CRITICAL: 0)
+Total: 14 (UNKNOWN: 0, LOW: 3, MEDIUM: 5, HIGH: 6, CRITICAL: 0)
 
-┌─────────────────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬──────────────────────────────────────────────────────────────┐
-│                       Library                       │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                             │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.apache.tomcat.embed:tomcat-embed-core (app.jar) │ CVE-2025-48988 │ HIGH     │ fixed  │ 10.1.39           │ 11.0.8, 10.1.42, 9.0.106  │ tomcat: Apache Tomcat DoS in multipart upload                │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-48988                   │
-│                                                     ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-48989 │          │        │                   │ 11.0.10, 10.1.44, 9.0.108 │ tomcat: http/2 "MadeYouReset" DoS attack through HTTP/2      │
-│                                                     │                │          │        │                   │                           │ control frames                                               │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-48989                   │
-│                                                     ├────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-31650 │ MEDIUM   │        │                   │ 9.0.104, 10.1.40, 11.0.6  │ tomcat: Apache Tomcat: DoS via malformed HTTP/2              │
-│                                                     │                │          │        │                   │                           │ PRIORITY_UPDATE frame                                        │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-31650                   │
-│                                                     ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-49125 │          │        │                   │ 11.0.8, 10.1.42, 9.0.106  │ tomcat: Apache Tomcat: Security constraint bypass for        │
-│                                                     │                │          │        │                   │                           │ pre/post-resources                                           │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-49125                   │
-│                                                     ├────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-31651 │ LOW      │        │                   │ 9.0.104, 10.1.40, 11.0.6  │ tomcat: Apache Tomcat: Bypass of rules in Rewrite Valve      │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-31651                   │
-│                                                     ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│                                                     │ CVE-2025-46701 │          │        │                   │ 9.0.105, 10.1.41, 11.0.7  │ tomcat: Apache Tomcat: Security constraint bypass for CGI    │
-│                                                     │                │          │        │                   │                           │ scripts                                                      │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-46701                   │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.eclipse.angus:smtp (app.jar)                    │ CVE-2025-7962  │ MEDIUM   │        │ 2.0.3             │ 2.0.4                     │ com.sun.mail/jakarta.mail: Jakarta Mail SMTP Injection       │
-│                                                     │                │          │        │                   │                           │ Vulnerability                                                │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-7962                    │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.postgresql:postgresql (app.jar)                 │ CVE-2025-49146 │ HIGH     │        │ 42.7.5            │ 42.7.7                    │ pgjdbc: pgjdbc insecure authentication in channel binding    │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-49146                   │
-├─────────────────────────────────────────────────────┼────────────────┤          │        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework.boot:spring-boot (app.jar)      │ CVE-2025-22235 │          │        │ 3.4.4             │ 3.3.11, 3.4.5             │ org.springframework.boot/spring-boot: Spring Boot            │
-│                                                     │                │          │        │                   │                           │ EndpointRequest.to() creates wrong matcher if actuator       │
-│                                                     │                │          │        │                   │                           │ endpoint is not...                                           │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-22235                   │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework:spring-context (app.jar)        │ CVE-2025-22233 │ LOW      │        │ 6.2.5             │ 6.2.7, 6.1.20             │ CVE-2024-38820 ensured Locale-independent, lowercase         │
-│                                                     │                │          │        │                   │                           │ conversion for bo ...                                        │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-22233                   │
-├─────────────────────────────────────────────────────┼────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework:spring-web (app.jar)            │ CVE-2025-41234 │ MEDIUM   │        │                   │ 6.2.8, 6.1.21             │ springframework: Reflected download attack in Spring         │
-│                                                     │                │          │        │                   │                           │ Framework with non-ASCII headers                             │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41234                   │
-├─────────────────────────────────────────────────────┼────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
-│ org.springframework:spring-webmvc (app.jar)         │ CVE-2025-41242 │          │        │                   │ 6.2.10                    │ org.springframework/spring-webmvc: Spring Framework MVC path │
-│                                                     │                │          │        │                   │                           │ traversal vulnerability                                      │
-│                                                     │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41242                   │
-└─────────────────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴──────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────────────────┬──────────────────────────────────────────────────────────────┐
+│                           Library                           │ Vulnerability  │ Severity │ Status │ Installed Version │       Fixed Version       │                            Title                             │
+├─────────────────────────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core (app.jar)         │ CVE-2025-48988 │ HIGH     │ fixed  │ 10.1.39           │ 11.0.8, 10.1.42, 9.0.106  │ tomcat: Apache Tomcat DoS in multipart upload                │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-48988                   │
+│                                                             ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                             │ CVE-2025-48989 │          │        │                   │ 11.0.10, 10.1.44, 9.0.108 │ tomcat: http/2 "MadeYouReset" DoS attack through HTTP/2      │
+│                                                             │                │          │        │                   │                           │ control frames                                               │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-48989                   │
+│                                                             ├────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                             │ CVE-2025-31650 │ MEDIUM   │        │                   │ 9.0.104, 10.1.40, 11.0.6  │ tomcat: Apache Tomcat: DoS via malformed HTTP/2              │
+│                                                             │                │          │        │                   │                           │ PRIORITY_UPDATE frame                                        │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-31650                   │
+│                                                             ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                             │ CVE-2025-49125 │          │        │                   │ 11.0.8, 10.1.42, 9.0.106  │ tomcat: Apache Tomcat: Security constraint bypass for        │
+│                                                             │                │          │        │                   │                           │ pre/post-resources                                           │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-49125                   │
+│                                                             ├────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                             │ CVE-2025-31651 │ LOW      │        │                   │ 9.0.104, 10.1.40, 11.0.6  │ tomcat: Apache Tomcat: Bypass of rules in Rewrite Valve      │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-31651                   │
+│                                                             ├────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                                                             │ CVE-2025-46701 │          │        │                   │ 9.0.105, 10.1.41, 11.0.7  │ tomcat: Apache Tomcat: Security constraint bypass for CGI    │
+│                                                             │                │          │        │                   │                           │ scripts                                                      │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-46701                   │
+├─────────────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.eclipse.angus:smtp (app.jar)                            │ CVE-2025-7962  │ MEDIUM   │        │ 2.0.3             │ 2.0.4                     │ com.sun.mail/jakarta.mail: Jakarta Mail SMTP Injection       │
+│                                                             │                │          │        │                   │                           │ Vulnerability                                                │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-7962                    │
+├─────────────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.postgresql:postgresql (app.jar)                         │ CVE-2025-49146 │ HIGH     │        │ 42.7.5            │ 42.7.7                    │ pgjdbc: pgjdbc insecure authentication in channel binding    │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-49146                   │
+├─────────────────────────────────────────────────────────────┼────────────────┤          │        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework.boot:spring-boot (app.jar)              │ CVE-2025-22235 │          │        │ 3.4.4             │ 3.3.11, 3.4.5             │ org.springframework.boot/spring-boot: Spring Boot            │
+│                                                             │                │          │        │                   │                           │ EndpointRequest.to() creates wrong matcher if actuator       │
+│                                                             │                │          │        │                   │                           │ endpoint is not...                                           │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-22235                   │
+├─────────────────────────────────────────────────────────────┼────────────────┤          │        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework.security:spring-security-core (app.jar) │ CVE-2025-41248 │          │        │ 6.4.4             │ 6.4.10, 6.5.4             │ org.springframework.security/spring-security-core: Spring    │
+│                                                             │                │          │        │                   │                           │ Security authorization bypass                                │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41248                   │
+├─────────────────────────────────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-context (app.jar)                │ CVE-2025-22233 │ LOW      │        │ 6.2.5             │ 6.2.7, 6.1.20             │ CVE-2024-38820 ensured Locale-independent, lowercase         │
+│                                                             │                │          │        │                   │                           │ conversion for bo ...                                        │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-22233                   │
+├─────────────────────────────────────────────────────────────┼────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-core (app.jar)                   │ CVE-2025-41249 │ HIGH     │        │                   │ 6.2.11                    │ org.springframework/spring-core: Spring Framework Annotation │
+│                                                             │                │          │        │                   │                           │ Detection Vulnerability                                      │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41249                   │
+├─────────────────────────────────────────────────────────────┼────────────────┼──────────┤        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-web (app.jar)                    │ CVE-2025-41234 │ MEDIUM   │        │                   │ 6.2.8, 6.1.21             │ springframework: Reflected download attack in Spring         │
+│                                                             │                │          │        │                   │                           │ Framework with non-ASCII headers                             │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41234                   │
+├─────────────────────────────────────────────────────────────┼────────────────┤          │        │                   ├───────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ org.springframework:spring-webmvc (app.jar)                 │ CVE-2025-41242 │          │        │                   │ 6.2.10                    │ org.springframework/spring-webmvc: Spring Framework MVC path │
+│                                                             │                │          │        │                   │                           │ traversal vulnerability                                      │
+│                                                             │                │          │        │                   │                           │ https://avd.aquasec.com/nvd/cve-2025-41242                   │
+└─────────────────────────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────────────────┴──────────────────────────────────────────────────────────────┘
